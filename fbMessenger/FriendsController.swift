@@ -34,7 +34,25 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
     }
 }
 
-class FriendCell: UICollectionViewCell {
+class FriendCell: BaseCell {
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "profile")
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    override func setupViews() {
+        backgroundColor = UIColor.blue
+        addSubview(profileImageView)
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": profileImageView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(68)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": profileImageView]))
+    }
+}
+
+class BaseCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -44,7 +62,7 @@ class FriendCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
+    func setupViews() {
         backgroundColor = UIColor.yellow
     }
 }
