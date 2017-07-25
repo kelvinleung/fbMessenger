@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61797251F2702AB00E74452 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61797241F2702AB00E74452 /* FriendCell.swift */; };
+		B61797271F27057300E74452 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61797261F27057300E74452 /* Helper.swift */; };
 		B6D6918B1F1DC9E9001F7EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D6918A1F1DC9E9001F7EED /* AppDelegate.swift */; };
 		B6D691931F1DC9E9001F7EED /* fbMessenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6D691911F1DC9E9001F7EED /* fbMessenger.xcdatamodeld */; };
 		B6D691951F1DC9E9001F7EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D691941F1DC9E9001F7EED /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B61797241F2702AB00E74452 /* FriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		B61797261F27057300E74452 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B6D691871F1DC9E9001F7EED /* fbMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fbMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D6918A1F1DC9E9001F7EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6D691921F1DC9E9001F7EED /* fbMessenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fbMessenger.xcdatamodel; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				B6D691A11F1DCBF8001F7EED /* FriendsController.swift */,
+				B61797241F2702AB00E74452 /* FriendCell.swift */,
+				B61797261F27057300E74452 /* Helper.swift */,
 				B6D6918A1F1DC9E9001F7EED /* AppDelegate.swift */,
 				B6D691A31F1DCD88001F7EED /* Notes.md */,
 				B6D691941F1DC9E9001F7EED /* Assets.xcassets */,
@@ -143,6 +149,8 @@
 				B6D691931F1DC9E9001F7EED /* fbMessenger.xcdatamodeld in Sources */,
 				B6D691A21F1DCBF8001F7EED /* FriendsController.swift in Sources */,
 				B6D6918B1F1DC9E9001F7EED /* AppDelegate.swift in Sources */,
+				B61797251F2702AB00E74452 /* FriendCell.swift in Sources */,
+				B61797271F27057300E74452 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +306,7 @@
 				B6D6919E1F1DC9E9001F7EED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
