@@ -18,6 +18,21 @@ class FriendCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var message: Message? {
+        didSet {
+            nameLabel.text = message?.friend?.name
+            if let profileImageName = message?.friend?.profileImageName {
+                profileImageView.image = UIImage(named: profileImageName)
+            }
+            messageLabel.text = message?.text
+            if let date = message?.date as Date? {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "h:mm a"
+                timeLabel.text = dateFormatter.string(from: date)
+            }
+        }
+    }
+    
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "profile")
