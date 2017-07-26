@@ -92,6 +92,7 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
                         messages?.append(contentsOf: fetchedMessages)
                     }
                 }
+                messages = messages?.sorted(by: { $0.date!.compare($1.date! as Date) == .orderedDescending })
             }
         }
     }
