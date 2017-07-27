@@ -18,6 +18,8 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         didSet {
             navigationItem.title = friend?.name
             messages = friend?.messages?.allObjects as? [Message]
+            
+            messages = messages?.sorted(by: { $0.date!.compare($1.date! as Date) == .orderedAscending })
         }
     }
     
@@ -36,6 +38,14 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        if let chatLogMessageCell = cell as? ChatLogMessageCell {
+            chatLogMessageCell.message = messages?[indexPath.item]
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 100)
     }
 }
