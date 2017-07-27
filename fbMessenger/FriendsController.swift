@@ -108,19 +108,15 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     private func clearData() {
+        let entityNames = ["Message", "Friend"]
+        
         if let context = container?.viewContext {
-            let messageRequest: NSFetchRequest<Message> = Message.fetchRequest()
-            let friendRequest: NSFetchRequest<Friend> = Friend.fetchRequest()
-            
-            if let messages = try? context.fetch(messageRequest) {
-                for message in messages {
-                    context.delete(message)
-                }
-            }
-
-            if let friends = try? context.fetch(friendRequest) {
-                for friend in friends {
-                    context.delete(friend)
+            for entityName in entityNames {
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+                if let objects = try? context.fetch(request) {
+                    for object in objects {
+                        context.delete(object as! NSManagedObject)
+                    }
                 }
             }
             try? context.save()
