@@ -27,6 +27,15 @@ class FriendCell: UICollectionViewCell {
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            backgroundColor = isSelected ? UIColor(red: 0, green: 134 / 255, blue: 249 / 255, alpha: 1) : UIColor.white
+            nameLabel.textColor = isSelected ? UIColor.white : UIColor.black
+            messageLabel.textColor = isSelected ? UIColor.white : UIColor.darkGray
+            timeLabel.textColor = isSelected ? UIColor.white : UIColor.darkGray
+        }
+    }
+    
     var message: Message? {
         didSet {
             nameLabel.text = message?.friend?.name
