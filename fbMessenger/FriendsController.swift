@@ -53,6 +53,10 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
         return CGSize(width: view.frame.width, height: 100)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
         let chatLogController = ChatLogController(collectionViewLayout: layout)
