@@ -77,7 +77,7 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
             createMessageWithText(text: "Hello, my name is Mark", friend: mark, minutesAgo: 1, context: context)
             createMessageWithText(text: "Would you like some coffee?", friend: mark, minutesAgo: 3, context: context)
             createMessageWithText(text: "Hello, how are you today?", friend: tracy, minutesAgo: 7, context: context)
-            createMessageWithText(text: "I'm going to the zoo with my friends.", friend: tracy, minutesAgo: 9, context: context)
+            createMessageWithText(text: "I'm going to the zoo with my friends. Are you coming with us? It'll be great fun if you come. Be waiting...", friend: tracy, minutesAgo: 9, context: context)
             createMessageWithText(text: "Where are you going?", friend: tracy, minutesAgo: 13, context: context)
             
             try? context.save()

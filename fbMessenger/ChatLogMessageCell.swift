@@ -19,24 +19,41 @@ class ChatLogMessageCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let messageTextView: UITextView = {
+    let messageView: UITextView = {
         let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.font = UIFont.systemFont(ofSize: 18)
+        textView.padding(top: 8, right: 12, bottom: 8, left: 12)
+        textView.textContainer.lineFragmentPadding = 0
+        textView.backgroundColor = UIColor.clear
+        textView.isEditable = false
         return textView
+    }()
+    
+    let bubbleView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 12
+        view.layer.masksToBounds = true
+        view.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        return view
     }()
     
     var message: Message? {
         didSet {
-            messageTextView.text = message?.text
+            messageView.text = message?.text
+        }
+    }
+    
+    var bubbleSize: CGSize? {
+        didSet {
+            if let size = bubbleSize {
+                bubbleView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+                messageView.frame = bubbleView.bounds
+            }
         }
     }
     
     private func setupView() {
-        backgroundColor = UIColor.blue
-        
-        addSubview(messageTextView)
-        
-        addConstraintsWithFormat(format: "H:|[v0]|", views: messageTextView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: messageTextView)
+        self.contentView.addSubview(bubbleView)
+        bubbleView.addSubview(messageView)
     }
 }

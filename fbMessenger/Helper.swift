@@ -25,3 +25,9 @@ extension UIView {
         addConstraint(NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: to, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0))
     }
 }
+
+extension UITextView {
+    func padding(top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat) {
+        self.textContainerInset = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+    }
+}

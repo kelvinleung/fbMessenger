@@ -23,11 +23,23 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         }
     }
     
+    private func calculateTextFrame(text: String, maxWidth: CGFloat, fontSize: CGFloat) -> CGRect {
+        let size = CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude)
+        let option = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        let estimatedFrame = NSString(string: text).boundingRect(with: size, options: option, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], context: nil)
+        return estimatedFrame
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = UIColor.white
         
+        collectionView?.backgroundColor = UIColor.white
+        collectionView?.alwaysBounceVertical = true
         collectionView?.register(ChatLogMessageCell.self, forCellWithReuseIdentifier: cellId)
+        
+        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -41,11 +53,21 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         if let chatLogMessageCell = cell as? ChatLogMessageCell {
             chatLogMessageCell.message = messages?[indexPath.item]
+            
+            if let messageText = messages?[indexPath.item].text {
+                let frame = calculateTextFrame(text: messageText, maxWidth: 250, fontSize: 18)
+                let bubbleSize = CGSize(width: frame.width + 12 * 2, height: frame.height + 8 * 2)
+                chatLogMessageCell.bubbleSize = bubbleSize
+            }
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if let messageText = messages?[indexPath.item].text {
+            let frame = calculateTextFrame(text: messageText, maxWidth: 250, fontSize: 18)
+            return CGSize(width: view.frame.width, height: frame.height + 8 * 2)
+        }
         return CGSize(width: view.frame.width, height: 100)
     }
 }
