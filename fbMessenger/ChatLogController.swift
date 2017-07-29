@@ -51,14 +51,14 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        if let chatLogMessageCell = cell as? ChatLogMessageCell {
-            chatLogMessageCell.message = messages?[indexPath.item]
-            
-            if let messageText = messages?[indexPath.item].text {
-                let frame = calculateTextFrame(text: messageText, maxWidth: 250, fontSize: 18)
-                let bubbleSize = CGSize(width: frame.width + 12 * 2, height: frame.height + 8 * 2)
-                chatLogMessageCell.bubbleSize = bubbleSize
-            }
+        if let chatLogMessageCell = cell as? ChatLogMessageCell,
+        let messageText = messages?[indexPath.item].text,
+        let profileImageName = messages?[indexPath.item].friend?.profileImageName {
+            chatLogMessageCell.messageView.text = messageText
+            chatLogMessageCell.profileImageView.image = UIImage(named: profileImageName)
+            let frame = calculateTextFrame(text: messageText, maxWidth: 250, fontSize: 18)
+            let bubbleSize = CGSize(width: frame.width + 12 * 2, height: frame.height + 8 * 2)
+            chatLogMessageCell.bubbleSize = bubbleSize
         }
         return cell
     }
@@ -69,5 +69,9 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
             return CGSize(width: view.frame.width, height: frame.height + 8 * 2)
         }
         return CGSize(width: view.frame.width, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
     }
 }

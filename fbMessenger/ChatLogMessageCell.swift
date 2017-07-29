@@ -33,20 +33,22 @@ class ChatLogMessageCell: UICollectionViewCell {
         let view = UIView()
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
-        view.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         return view
     }()
     
-    var message: Message? {
-        didSet {
-            messageView.text = message?.text
-        }
-    }
+    let profileImageView: UIImageView = {
+        let profileView = UIImageView()
+        profileView.layer.cornerRadius = 15
+        profileView.layer.masksToBounds = true
+        profileView.contentMode = .scaleAspectFill
+        return profileView
+    }()
     
     var bubbleSize: CGSize? {
         didSet {
             if let size = bubbleSize {
-                bubbleView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+                bubbleView.frame = CGRect(x: 46, y: 0, width: size.width, height: size.height)
                 messageView.frame = bubbleView.bounds
             }
         }
@@ -55,5 +57,9 @@ class ChatLogMessageCell: UICollectionViewCell {
     private func setupView() {
         self.contentView.addSubview(bubbleView)
         bubbleView.addSubview(messageView)
+        self.contentView.addSubview(profileImageView)
+        
+        self.contentView.addConstraintsWithFormat(format: "H:|-8-[v0(30)]", views: profileImageView)
+        self.contentView.addConstraintsWithFormat(format: "V:|[v0(30)]", views: profileImageView)
     }
 }
