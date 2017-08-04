@@ -1,4 +1,4 @@
-Manuall StoryBoard
+Manually Create View Controller
 
 ```swift
 window = UIWindow(frame: UIScreen.main.bounds)

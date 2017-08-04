@@ -17,7 +17,6 @@
 		B6D691951F1DC9E9001F7EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D691941F1DC9E9001F7EED /* Assets.xcassets */; };
 		B6D691981F1DC9E9001F7EED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D691961F1DC9E9001F7EED /* LaunchScreen.storyboard */; };
 		B6D691A21F1DCBF8001F7EED /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D691A11F1DCBF8001F7EED /* FriendsController.swift */; };
-		B6D691A41F1DCD88001F7EED /* Notes.md in Sources */ = {isa = PBXBuildFile; fileRef = B6D691A31F1DCD88001F7EED /* Notes.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		B6D691971F1DC9E9001F7EED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6D691991F1DC9E9001F7EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6D691A11F1DCBF8001F7EED /* FriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
-		B6D691A31F1DCD88001F7EED /* Notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +71,6 @@
 				B61797261F27057300E74452 /* Helper.swift */,
 				B6D6918A1F1DC9E9001F7EED /* AppDelegate.swift */,
 				B63AA8971F2A494A00A9717A /* CustomTabBarController.swift */,
-				B6D691A31F1DCD88001F7EED /* Notes.md */,
 				B6D691941F1DC9E9001F7EED /* Assets.xcassets */,
 				B6D691961F1DC9E9001F7EED /* LaunchScreen.storyboard */,
 				B6D691991F1DC9E9001F7EED /* Info.plist */,
@@ -154,7 +151,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6D691A41F1DCD88001F7EED /* Notes.md in Sources */,
 				B6D691931F1DC9E9001F7EED /* fbMessenger.xcdatamodeld in Sources */,
 				B63AA8961F28FB2E00A9717A /* ChatLogMessageCell.swift in Sources */,
 				B6D691A21F1DCBF8001F7EED /* FriendsController.swift in Sources */,
