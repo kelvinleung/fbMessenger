@@ -26,6 +26,7 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     private func calculateTextFrame(text: String, maxWidth: CGFloat, fontSize: CGFloat) -> CGRect {
         let size = CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude)
         let option = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        // 计算给定 string 与条件下所占的 frame 大小
         let estimatedFrame = NSString(string: text).boundingRect(with: size, options: option, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: fontSize)], context: nil)
         return estimatedFrame
     }
@@ -72,6 +73,7 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        // padding top
         return UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
     }
 }

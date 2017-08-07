@@ -61,6 +61,7 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
         let layout = UICollectionViewFlowLayout()
         let chatLogController = ChatLogController(collectionViewLayout: layout)
         chatLogController.friend = messages?[indexPath.item].friend
+        // 手工跳转页面
         navigationController?.pushViewController(chatLogController, animated: true)
     }
     
